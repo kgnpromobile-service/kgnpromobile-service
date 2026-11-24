@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KGN Pro Mobile Service — Mobile Repair &amp; Service</title>
+<meta name="description" content="KGN Pro Mobile Service — screen replacement, battery change, water damage repair, software fix and doorstep mobile service." />
+<style>
+  :root{
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --muted:#64748b;
+    --line:#e2e8f0;
+    --bg:#ffffff;
+    --bg-soft:#f8fafc;
+    --accent:#1d4ed8;
+    --accent-dark:#1e3a8a;
+    --accent-soft:#eff4ff;
+    --green:#15803d;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.06);
+    --max:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{line-height:1.2;margin:0;letter-spacing:-.02em}
+  p{margin:0}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .eyebrow{
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .brand-mark{
+    width:38px;height:38px;border-radius:11px;flex:0 0 auto;
+    background:linear-gradient(140deg,var(--accent),#3b82f6);
+    color:#fff;display:grid;place-items:center;font-weight:800;font-size:12.5px;letter-spacing:.04em;
+  }
+  .brand-name{font-weight:700;font-size:15px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-short{display:none;font-weight:700;font-size:15px;line-height:1.15;white-space:nowrap}
+  .brand-sub{font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:.04em}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:14.5px;color:var(--ink-soft);font-weight:500}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 20px;border-radius:10px;font-size:14.5px;font-weight:600;
+    border:1px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+    font-family:inherit;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(29,78,216,.22)}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:#cbd5e1;background:var(--bg-soft)}
+  .btn-wa{background:#e9f9ef;color:var(--green);border-color:#c6ecd4}
+  .btn-wa:hover{background:#dcf5e6}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:9px;padding:8px 10px;cursor:pointer}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 56px;background:
+    radial-gradient(900px 380px at 85% -10%, #eef4ff 0%, rgba(238,244,255,0) 70%),
+    var(--bg);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(30px,4.4vw,50px);font-weight:800;margin:14px 0 16px}
+  .hero h1 span{color:var(--accent)}
+  .hero p.lead{font-size:17px;color:var(--ink-soft);max-width:520px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  .trust div{display:flex;flex-direction:column}
+  .trust b{font-size:19px;font-weight:800;letter-spacing:-.02em}
+  .trust span{font-size:12.5px;color:var(--muted)}
+
+  .card-visual{
+    background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);
+    padding:22px;
+  }
+  .ticket{display:flex;flex-direction:column;gap:14px}
+  .ticket-head{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
+  .pill{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:11.5px;padding:4px 10px;border-radius:999px;letter-spacing:.03em}
+  .ticket-row{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px}
+  .ticket-row .ico{width:34px;height:34px;border-radius:9px;background:var(--bg-soft);display:grid;place-items:center;flex:0 0 auto}
+  .ticket-row .txt{flex:1;min-width:0}
+  .ticket-row .txt b{display:block;font-size:14px}
+  .ticket-row .txt small{color:var(--muted);font-size:12px}
+  .ticket-row .amt{font-weight:700;font-size:14px}
+  .ticket-total{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px dashed var(--line);font-weight:700}
+  .ticket-note{font-size:11.5px;color:var(--muted)}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0}
+  .sec-head{max-width:620px;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin:10px 0 12px}
+  .sec-head p{color:var(--ink-soft);font-size:16px}
+  .soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+
+  .svc{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+    transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  .svc:hover{border-color:#c7d7fb;box-shadow:var(--shadow);transform:translateY(-2px)}
+  .svc .ico{
+    width:42px;height:42px;border-radius:11px;background:var(--accent-soft);color:var(--accent);
+    display:grid;place-items:center;margin-bottom:16px;
+  }
+  .svc h3{font-size:16.5px;font-weight:700;margin-bottom:6px}
+  .svc p{font-size:14.5px;color:var(--ink-soft)}
+  .svc .meta{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .svc .meta b{color:var(--ink);font-weight:700}
+
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .why-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .why-item b{display:block;font-size:15px;margin-bottom:6px}
+  .why-item p{font-size:14px;color:var(--ink-soft)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+  .step{position:relative;padding:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+  .step .num{
+    width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:13px;
+    display:grid;place-items:center;margin-bottom:14px;
+  }
+  .step b{display:block;margin-bottom:6px;font-size:15.5px}
+  .step p{font-size:14px;color:var(--ink-soft)}
+
+  /* ---------- Booking ---------- */
+  .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  form.book{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink-soft)}
+  .field input,.field select,.field textarea{
+    width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;
+    font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;transition:border-color .15s, box-shadow .15s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:#93b4fb;box-shadow:0 0 0 3px rgba(29,78,216,.12);
+  }
+  .field textarea{resize:vertical;min-height:76px}
+  .field .err{color:#b91c1c;font-size:12.5px;margin-top:5px;display:none}
+  .field.invalid input,.field.invalid select{border-color:#f0a3a3}
+  .field.invalid .err{display:block}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .form-foot{display:flex;align-items:center;gap:12px;margin-top:20px}
+  .form-foot small{color:var(--muted);font-size:12px}
+  .ok-msg{
+    display:none;margin-top:16px;padding:12px 14px;border-radius:10px;
+    background:#ecfdf3;border:1px solid #bbf0ce;color:#166534;font-size:14px;
+  }
+  .ok-msg.show{display:block}
+  .ok-msg b{display:block;margin-bottom:4px}
+  .ok-msg .ok-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .ok-msg .ok-actions a{
+    display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:9px;
+    font-size:13.5px;font-weight:600;border:1px solid transparent;
+  }
+  .ok-msg .wa{background:#16a34a;color:#fff}
+  .ok-msg .wa:hover{background:#15803d}
+  .ok-msg .mail{background:#fff;color:#166534;border-color:#bbf0ce}
+  .ok-msg .mail:hover{background:#f3fdf6}
+
+  .side-note{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .side-note h3{font-size:17px;margin-bottom:14px}
+  .contact-line{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+  .contact-line:last-of-type{border-bottom:0}
+  .contact-line .ico{width:34px;height:34px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;color:var(--accent)}
+  .contact-line b{display:block;font-size:14px}
+  .contact-line span{font-size:13.5px;color:var(--ink-soft)}
+
+  .bookings{margin-top:44px}
+  .bookings h3{font-size:17px;margin-bottom:6px}
+  .bookings .hint{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+  .b-list{display:grid;gap:12px}
+  .b-item{
+    display:flex;gap:14px;align-items:flex-start;justify-content:space-between;
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;
+  }
+  .b-item .b-main b{font-size:14.5px;display:block}
+  .b-item .b-main span{font-size:13px;color:var(--ink-soft);display:block}
+  .b-item .b-main small{font-size:12px;color:var(--muted)}
+  .b-item .del{
+    background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;
+    padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;flex:0 0 auto;
+  }
+  .b-item .del:hover{border-color:#f0a3a3;color:#b91c1c}
+  .empty{font-size:13.5px;color:var(--muted);background:var(--bg-soft);border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:center}
+  .clear-all{background:none;border:0;color:var(--muted);font-size:12.5px;cursor:pointer;text-decoration:underline;font-family:inherit;padding:0}
+
+  /* ---------- Contact / footer ---------- */
+  .cta-band{background:var(--ink);color:#fff;border-radius:20px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+  .cta-band h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin-bottom:8px}
+  .cta-band p{color:#cbd5e1;font-size:15px;max-width:520px}
+  footer{padding:44px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand b{color:var(--ink);font-size:14.5px;display:block;margin-bottom:6px}
+  .stamp{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#94a3b8}
+
+  @media (max-width:900px){
+    .hero-grid,.booking-grid{grid-template-columns:1fr;gap:34px}
+    .grid-3,.why,.steps{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    .nav-cta .btn-ghost{display:none}
+  }
+  @media (max-width:620px){
+    .nav{height:60px;gap:10px}
+    .brand-name{display:none}
+    .brand-short{display:block}
+    .brand-mark{width:34px;height:34px;border-radius:10px;font-size:14px}
+    .nav-cta .btn-primary{padding:9px 13px;font-size:13.5px;white-space:nowrap}
+    .wrap{padding:0 16px}
+    section{padding:52px 0}
+    .hero{padding:40px 0 44px}
+    .grid-3,.why,.steps,.grid-2{grid-template-columns:1fr}
+    .row-2{grid-template-columns:1fr}
+    .trust{gap:16px}
+    .cta-band{padding:28px;border-radius:16px}
+    .brand-sub{display:none}
+    .card-visual{padding:18px}
+    .form-foot{flex-direction:column;align-items:stretch}
+    .form-foot .btn{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark">KGN</span>
+      <span>
+        <span class="brand-name">KGN Pro Mobile Service</span>
+        <span class="brand-short">KGN Pro Mobile</span>
+        <span class="brand-sub">Mobile repair &amp; doorstep service</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#how">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:+918850015621">Call now</a>
+      <a class="btn btn-primary" href="#book">Book a repair</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Trusted mobile repair service</div>
+        <h1>Your phone, fixed right — <span>often the same day.</span></h1>
+        <p class="lead">Screen replacement, battery change, charging-port repair, water damage and software fixes for all major brands. Walk in to the shop or book a doorstep visit in your city.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book a repair</a>
+          <a class="btn btn-wa" href="https://wa.me/918850015621?text=Hi%2C%20I%20need%20a%20mobile%20repair" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-3.6-1.9 13 13 0 0 1-2.6-3.1c-.3-.6-.6-1.3-.5-2 0-.5.4-1 .7-1.3.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.5.9 1.2 1.6 2 2.1.3.2.5.2.7 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.3.2.3.4 0 .1 0 .8-.2 1.4Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="trust">
+          <div><b>4.8★</b><span>Customer rating</span></div>
+          <div><b>30–60 min</b><span>Most screen repairs</span></div>
+          <div><b>90 days</b><span>Warranty on parts</span></div>
+          <div><b>All brands</b><span>iPhone · Samsung · Xiaomi &amp; more</span></div>
+        </div>
+      </div>
+
+      <div class="card-visual">
+        <div class="ticket">
+          <div class="ticket-head">
+            <span>Service estimate · Job #1042</span>
+            <span class="pill">Live</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 5.5h4"/></svg></span>
+            <span class="txt"><b>Display replacement</b><small>Original-quality panel</small></span>
+            <span class="amt">₹1,800</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="15" height="10" rx="2"/><path d="M21 10.5v3"/><path d="M6.5 10.5v3M9.5 10.5v3M12.5 10.5v3"/></svg></span>
+            <span class="txt"><b>Battery replacement</b><small>Genuine-grade cell</small></span>
+            <span class="amt">₹950</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+            <span class="txt"><b>Software reset &amp; setup</b><small>Lag, boot loop, virus cleanup</small></span>
+            <span class="amt">₹400</span>
+          </div>
+          <div class="ticket-total"><span>Estimated total</span><span>₹3,150</span></div>
+          <div class="ticket-note">Final price confirmed after free diagnosis. No hidden charges.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Services</div>
+        <h2>Everything your phone needs, under one roof</h2>
+        <p>Repairs are done in front of you wherever possible. Every part we fit carries a 90-day warranty.</p>
+      </div>
+      <div class="grid-3">
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M9 6h6"/></svg></span>
+          <h3>Screen &amp; display repair</h3>
+          <p>Cracked glass, dead touch, lines or black patches — replaced with tested panels.</p>
+          <div class="meta"><span>Starting</span><b>₹1,200</b></div>
+        </div>
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="7" width="15" height="10" rx="2"/><path d="M21 10.5v3"/><path d="M6.5 10.5v3M9.5 10.5v3M12.5 10.5v3"/></svg></span>
+          <h3>Battery replacement</h3>
+          <p>Phone dying fast or switching off at 30%? New cell fitted and tested in 30 minutes.</p>
+          <div class="meta"><span>Starting</span><b>₹800</b></div>
+        </div>
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 2.5v6M12 15.5v6"/><path d="M8 8.5h8v7H8z"/></svg></span>
+          <h3>Charging port &amp; speaker</h3>
+          <p>Loose cable, slow charging, no sound on calls or mic not working — cleaned or replaced.</p>
+          <div class="meta"><span>Starting</span><b>₹700</b></div>
+        </div>
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3s5.5 5.2 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.2 12 3 12 3Z"/></svg></span>
+          <h3>Water damage repair</h3>
+          <p>Ultrasonic cleaning and board-level inspection for phones that got wet.</p>
+          <div class="meta"><span>Starting</span><b>₹1,500</b></div>
+        </div>
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <h3>Software &amp; setup</h3>
+          <p>Hanging, boot loop, storage full, forgotten pattern or new-phone setup and data transfer.</p>
+          <div class="meta"><span>Starting</span><b>₹400</b></div>
+        </div>
+        <div class="svc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+          <h3>Doorstep service</h3>
+          <p>Technician comes to your home or office for screen, battery and software work.</p>
+          <div class="meta"><span>Visit charge</span><b>₹150</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="soft">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Why us</div>
+        <h2>Honest diagnosis, fair price, real warranty</h2>
+      </div>
+      <div class="why">
+        <div class="why-item"><b>Free diagnosis</b><p>We check the phone and tell you the exact fault and cost before any work starts.</p></div>
+        <div class="why-item"><b>Repair in front of you</b><p>Most jobs are opened and fixed at the counter, so you see every part that goes in.</p></div>
+        <div class="why-item"><b>90-day warranty</b><p>Parts and workmanship covered for 90 days. Keep the receipt we give you.</p></div>
+        <div class="why-item"><b>Data stays safe</b><p>Your photos and chats are not touched. Ask us to take a backup before any software job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps, no waiting in a queue</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><b>Book a slot</b><p>Fill the form below or send a WhatsApp message with your phone model and the problem.</p></div>
+        <div class="step"><span class="num">2</span><b>Free diagnosis</b><p>Bring the phone to the shop or we come to you. You get a fixed quote before the repair.</p></div>
+        <div class="step"><span class="num">3</span><b>Repair &amp; warranty</b><p>We fix it, test it with you and hand it back with a 90-day warranty slip.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="soft">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Book a repair</div>
+        <h2>Tell us about your phone</h2>
+        <p>Submit the form and we will call you back to confirm the slot. Your details stay on this device only.</p>
+      </div>
+
+      <div class="booking-grid">
+        <form class="book" id="bookForm" novalidate>
+          <div class="field" id="f-name">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="e.g. AadiL Husain" autocomplete="name" />
+            <div class="err">Please enter your name.</div>
+          </div>
+          <div class="row-2">
+            <div class="field" id="f-phone">
+              <label for="phone">Mobile number</label>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="10-digit number" autocomplete="tel" />
+              <div class="err">Enter a valid 10-digit mobile number.</div>
+            </div>
+            <div class="field" id="f-model">
+              <label for="model">Phone model</label>
+              <input id="model" name="model" type="text" placeholder="e.g. Redmi Note 12" />
+              <div class="err">Please enter the phone model.</div>
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label for="service">Service needed</label>
+              <select id="service" name="service">
+                <option>Screen / display repair</option>
+                <option>Battery replacement</option>
+                <option>Charging port / speaker</option>
+                <option>Water damage</option>
+                <option>Software / setup</option>
+                <option>Doorstep visit</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="when">Preferred day</label>
+              <input id="when" name="when" type="date" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="note">Describe the problem <span style="font-weight:400;color:#94a3b8">(optional)</span></label>
+            <textarea id="note" name="note" placeholder="e.g. Screen cracked at the corner, touch works only on the left side."></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Confirm booking request</button>
+            <small>No payment now. We call to confirm.</small>
+          </div>
+          <div class="ok-msg" id="okMsg" role="status"></div>
+        </form>
+
+        <aside class="side-note" id="contact">
+          <h3>Visit or call</h3>
+          <div class="contact-line">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 3.5h3l1.6 4-2 1.4a11 11 0 0 0 5.5 5.5l1.4-2 4 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg></span>
+            <span><b>Call / WhatsApp</b><span>+91 88500 15621</span></span>
+          </div>
+          <div class="contact-line">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <span><b>Shop address</b><span>C/O Fariyad Hussain,<br />Room No 6, Kailashpuram Chawl</span></span>
+          </div>
+          <div class="contact-line">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg></span>
+            <span><b>Shop hours</b><span>Mon–Sat: 10:00 am – 8:30 pm<br />Sunday: 11:00 am – 4:00 pm</span></span>
+          </div>
+          <div class="contact-line">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5.5h16v13H4z"/><path d="m4.6 6.2 7.4 6 7.4-6"/></svg></span>
+            <span><b>Email</b><span><a href="mailto:sufiyanhusain2005@gmail.com" style="color:var(--accent)">sufiyanhusain2005@gmail.com</a></span></span>
+          </div>
+          <a class="btn btn-wa" style="width:100%;margin-top:16px" href="https://wa.me/918850015621?text=Hi%2C%20I%20need%20a%20mobile%20repair" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </aside>
+      </div>
+
+      <div class="bookings">
+        <h3>My booking requests</h3>
+        <p class="hint">This list is saved in this browser only. To send a request to the shop, tap the WhatsApp button after submitting the form — all your details are filled in for you.</p>
+        <div class="b-list" id="bList"></div>
+        <div style="margin-top:14px"><button class="clear-all" id="clearAll" type="button" style="display:none">Clear all requests</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Phone not working? Don't wait for it to get worse.</h2>
+          <p>Send us your model and the problem on WhatsApp. Most quotes come back within 10 minutes during shop hours.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" style="background:#fff;color:#0f172a" href="#book">Book a repair</a>
+          <a class="btn" style="border-color:#334155;color:#fff" href="tel:+918850015621">Call the shop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>KGN Pro Mobile Service</b>
+        <p>Mobile repair, service and doorstep support. All brands, honest quotes, 90-day warranty on parts.</p>
+      </div>
+      <div>
+        <b style="color:#0f172a;display:block;margin-bottom:6px">Quick links</b>
+        <a href="#services" style="display:block">Services</a>
+        <a href="#why" style="display:block">Why us</a>
+        <a href="#book" style="display:block">Book a repair</a>
+      </div>
+      <div>
+        <b style="color:#0f172a;display:block;margin-bottom:6px">Contact</b>
+        <span style="display:block">+91 88500 15621</span>
+        <a href="mailto:sufiyanhusain2005@gmail.com" style="display:block">sufiyanhusain2005@gmail.com</a>
+        <span style="display:block">Mon–Sat 10:00–20:30</span>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>© <span id="year">2026</span> KGN Pro Mobile Service</span>
+      <span>Build v1.4 · 23 Nov 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var KEY = "pms_bookings_v1";
+  var form = document.getElementById("bookForm");
+  var okMsg = document.getElementById("okMsg");
+  var list = document.getElementById("bList");
+  var clearAll = document.getElementById("clearAll");
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function save(arr) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(arr));
+    } catch (e) {
+      okMsg.textContent = "Could not save on this device (storage blocked). Please call us instead.";
+      okMsg.classList.add("show");
+    }
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function render() {
+    var arr = load();
+    list.innerHTML = "";
+    if (!arr.length) {
+      var d = document.createElement("div");
+      d.className = "empty";
+      d.textContent = "No booking requests yet. Fill the form above and it will appear here.";
+      list.appendChild(d);
+      clearAll.style.display = "none";
+      return;
+    }
+    clearAll.style.display = "inline";
+    arr.slice().reverse().forEach(function (b) {
+      var row = document.createElement("div");
+      row.className = "b-item";
+      row.innerHTML =
+        '<div class="b-main">' +
+          "<b>" + esc(b.name) + " · " + esc(b.model) + "</b>" +
+          "<span>" + esc(b.service) + " — " + esc(b.phone) + "</span>" +
+          (b.note ? "<small>" + esc(b.note) + "</small>" : "") +
+          "<small>" + esc(b.when ? "Preferred: " + b.when : "Preferred: any day") +
+          " · Booked " + esc(b.created) + "</small>" +
+        "</div>" +
+        '<button class="del" type="button" data-id="' + esc(b.id) + '">Remove</button>';
+      list.appendChild(row);
+    });
+  }
+
+  list.addEventListener("click", function (e) {
+    var btn = e.target.closest(".del");
+    if (!btn) return;
+    var id = btn.getAttribute("data-id");
+    save(load().filter(function (b) { return String(b.id) !== id; }));
+    render();
+  });
+
+  clearAll.addEventListener("click", function () {
+    if (!confirm("Remove all booking requests from this device?")) return;
+    save([]);
+    render();
+  });
+
+  function setInvalid(id, bad) {
+    document.getElementById(id).classList.toggle("invalid", bad);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.replace(/\D/g, "");
+    var model = form.model.value.trim();
+
+    var badName = name.length < 2;
+    var badPhone = !/^[6-9]\d{9}$/.test(phone);
+    var badModel = model.length < 2;
+    setInvalid("f-name", badName);
+    setInvalid("f-phone", badPhone);
+    setInvalid("f-model", badModel);
+
+    if (badName || badPhone || badModel) {
+      var first = document.querySelector(".field.invalid input");
+      if (first) first.focus();
+      okMsg.classList.remove("show");
+      return;
+    }
+
+    var entry = {
+      id: "b" + Date.now(),
+      name: name,
+      phone: phone,
+      model: model,
+      service: form.service.value,
+      when: form.when.value || "",
+      note: form.note.value.trim(),
+      created: new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })
+    };
+    var arr = load();
+    arr.push(entry);
+    save(arr);
+    render();
+    form.reset();
+    var msg =
+      "New repair booking - KGN Pro Mobile Service" +
+      "\nName: " + entry.name +
+      "\nMobile: +91 " + entry.phone +
+      "\nPhone model: " + entry.model +
+      "\nService: " + entry.service +
+      "\nPreferred day: " + (entry.when || "any day") +
+      (entry.note ? "\nProblem: " + entry.note : "");
+
+    var waUrl = "https://wa.me/918850015621?text=" + encodeURIComponent(msg);
+    var mailUrl = "mailto:sufiyanhusain2005@gmail.com?subject=" +
+      encodeURIComponent("Repair booking - " + entry.model) + "&body=" + encodeURIComponent(msg);
+
+    okMsg.innerHTML =
+      "<b>Request saved on this device.</b>" +
+      "Now send it to the shop on WhatsApp — your details are already filled in." +
+      '<div class="ok-actions">' +
+        '<a class="wa" href="' + waUrl + '" target="_blank" rel="noopener">Send on WhatsApp</a>' +
+        '<a class="mail" href="' + mailUrl + '">Send by email</a>' +
+      "</div>";
+    okMsg.classList.add("show");
+
+    // try to hand off to WhatsApp straight away (allowed: inside the submit gesture)
+    try { window.open(waUrl, "_blank"); } catch (e) {}
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
